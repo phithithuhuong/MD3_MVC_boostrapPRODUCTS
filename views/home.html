@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fanpage products </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+
+        .carousel-inner img {
+            width: 100%; /* Set width to 100% */
+            min-height: 200px;
+        }
+
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+        footer {
+            background-color: #0c1a1e;
+            min-height: 350px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .footerleft {
+            margin-top: 50px;
+            padding: 0 36px;
+        }
+
+        .logofooter {
+            margin-bottom: 10px;
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .footerleft p {
+            color: #fff;
+            font-size: 12px !important;
+            font-family: 'Open Sans', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .footerleft p i {
+            width: 20px;
+            color: #999;
+        }
+
+
+        .paddingtop-bottom {
+            margin-top: 50px;
+        }
+
+        .footer-ul {
+            list-style-type: none;
+            padding-left: 0px;
+            margin-left: 2px;
+        }
+
+        .footer-ul li {
+            line-height: 29px;
+            font-size: 12px;
+        }
+
+        .footer-ul li a {
+            color: #a0a3a4;
+            transition: color 0.2s linear 0s, background 0.2s linear 0s;
+        }
+
+        .footer-ul i {
+            margin-right: 10px;
+        }
+
+        .footer-ul li a:hover {
+            transition: color 0.2s linear 0s, background 0.2s linear 0s;
+            color: #ff670f;
+        }
+
+        .social:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1.1);
+        }
+
+
+        .icon-ul {
+            list-style-type: none !important;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .icon-ul li {
+            line-height: 75px;
+            width: 100%;
+            float: left;
+        }
+
+        .icon {
+            float: left;
+            margin-right: 5px;
+        }
+
+
+        .copyright {
+            min-height: 40px;
+            background-color: #000000;
+        }
+
+        .copyright p {
+            text-align: left;
+            color: #FFF;
+            padding: 10px 0;
+            margin-bottom: 0px;
+        }
+
+        .heading7 {
+            font-size: 21px;
+            font-weight: 700;
+            color: #d9d6d6;
+            margin-bottom: 22px;
+        }
+
+        .post p {
+            font-size: 12px;
+            color: #FFF;
+            line-height: 20px;
+        }
+
+        .post p span {
+            display: block;
+            color: #8f8f8f;
+        }
+
+        .bottom_ul {
+            list-style-type: none;
+            float: right;
+            margin-bottom: 0px;
+        }
+
+        .bottom_ul li {
+            float: left;
+            line-height: 40px;
+        }
+
+        .bottom_ul li:after {
+            content: "/";
+            color: #FFF;
+            margin-right: 8px;
+            margin-left: 8px;
+        }
+
+        .bottom_ul li a {
+            color: #FFF;
+            font-size: 12px;
+        }
+
+        h3 {
+            color: #709085;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">GUCCI</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="/list">Products</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_3200x1624/1553067904/DiaryHeroArticle_Bloom-FamilyPortrait-02_001_Default.jpg"
+                             alt="Los Angeles" class="d-block" style="width:100%">
+                        <div class="carousel-caption">
+                            <h3>Sell $</h3>
+                            <p>Money Money.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="https://media.gucci.com/content/HeroRegularStandard_1600x675/1671464768/HeroRegularStandard_cny-beauty-2022-19dec22-09_001_Default.jpg"
+                             alt="Chicago" class="d-block" style="width:100%">
+                        <div class="carousel-caption">
+                            <h3>More Sell $</h3>
+                            <p>Lorem ipsum...</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_3200x1624/1596016804/DiaryHeroArticle_BEAUTY-BLOOM-REVIVAL-02_001_Default.jpg"
+                             alt="New York" class="d-block" style="width:100%">
+                        <div class="carousel-caption">
+                            <h3>More Sell $</h3>
+                            <p>Lorem ipsum...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well">
+                <div class="well">
+                    <h4> Sometime products with Gucci flora so beautiful... </h4>
+                    <p>Between Fiction and Reality</p>
+                </div>
+                <img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_950x680/1669629625/DiaryHeroArticle_gucci-beauty-wishes-campaign-01_001_Default.jpg"
+                     alt="gucci" width="100%">
+            </div>
+
+        </div>
+    </div>
+    <hr>
+</div>
+
+<div class="container text-center">
+    <h3>Disrupting the traditional olfactive families that classify fragrances, Gucci Mémoire d’une Odeur creates a new
+        one: Mineral Aromatic.</h3>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="https://media.gucci.com/content/DiaryArticleSingle_Standard_1536x2150/1553067903/DiaryArticleSingle_Bloom-FamilyPortrait-01_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+            <p>The new Gucci Bloom fragrance campaign tells the story of four women living in a garden of dreams.</p>
+        </div>
+        <div class="col-sm-3">
+            <img src="https://media.gucci.com/content/DiaryArticleSingle_Standard_1536x2150/1596095103/DiaryArticleSingle_BEAUTY-BLOOM-REVIVAL-04_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+            <p>Between Fiction and Reality </p>
+        </div>
+        <div class="col-sm-3">
+            <div class="well">
+                <p>“In the campaign, the flowers live a life of their own in a world, let’s say, real but surreal. The
+                    dream of nature is a psychedelic dream, suspended in time, where Anjelica, Florence, Jodie and Susie
+                    embody four different ways of being a woman.”</p>
+            </div>
+            <div class="well">
+                <h3>"The new Gucci Bloom"</h3>
+                <img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_3200x1624/1596016804/DiaryHeroArticle_BEAUTY-BLOOM-REVIVAL-01_001_Default.jpg"
+                     style="width: 100%" alt="gucci">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="well">
+                <h3>"Gucci flora"</h3>
+                <img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_950x680/1553067904/DiaryHeroArticle_Bloom-FamilyPortrait-01_001_Default.jpg"
+                     style=" width:100%" alt="gucci">
+            </div>
+            <div class="well">
+                <p>The new Gucci Bloom fragrance campaign tells the story of four women living in a garden of
+                    dreams.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<div class="container text-center">
+    <h3>Our Partners</h3>
+    <br>
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="https://media.gucci.com/content/DiaryArticleDouble_Standard_2800x1788/1533118506/DiaryArticleDouble_Blom-Ndf-03_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+            <p>In the second act of ‘The Awakening,’ actor Jodie Turner-Smith explores motherhood and her evolution as a
+                woman for Gucci Bloom.</p>
+        </div>
+        <div class="col-sm-2">
+            <p>With her distinct comic-inspired style, Raphaelle Macaron depicts the House’s new Gucci Blooming Love
+                collection in a series of illustrations and animations.</p>
+            <img src="https://media.gucci.com/content/DiaryPrimaryImg_Standard_576x432/1564658104/DiaryPrimaryImg_Memoire-campaign_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+
+        </div>
+        <div class="col-sm-2">
+            <img src="https://media.gucci.com/content/DiaryPrimaryImg_Standard_576x432/1669383059/DiaryPrimaryImg_gucci-beauty-wishes-campaign_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+            <p>In a new series of films created with Vogue, the charismatic women of the Gucci Bloom family explore
+                empowerment from within themselves.</p>
+        </div>
+        <div class="col-sm-2">
+            <p>A breakfast in bed with nostalgic vibes sets the scene in the new Beauty campaign to present the new high
+                shine moisturizing lipsticks.</p>
+            <img src="https://media.gucci.com/content/DiaryPrimaryImg_Standard_576x432/1589981405/DiaryPrimaryImg_Flora-Summer-2020_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+
+        </div>
+        <div class="col-sm-2">
+            <img src="https://media.gucci.com/content/DiaryPrimaryImg_Standard_576x432/1539605705/DiaryPrimaryImg_BloomFamily_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+            <p>The Alchemist’s Garden welcomes 1921, a new scent celebrating 100 years of Gucci.</p>
+        </div>
+        <div class="col-sm-2">
+            <p>A note of wild blackberry in new fragrance Gucci Guilty Absolute Pour Femme inspires a discovery of
+                forest folktales and legends.</p>
+            <img src="https://media.gucci.com/content/DiaryPrimaryImg_Standard_576x432/1518426007/DiaryPrimaryImg_Absolute_001_Default.jpg"
+                 class="img-responsive" style="width:100%" alt="Image">
+        </div>
+    </div>
+
+</div>
+<br>
+<!-- Footer -->
+<!--footer start from here-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 footerleft ">
+                <div class="logofooter"> Logo</div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+                <p><i class="fa fa-map-pin"></i> 210, Aggarwal Tower, Rohini sec 9, New Delhi -        110085, INDIA</p>
+                <p><i class="fa fa-phone"></i> Phone (India) : +91 9999 878 398</p>
+                <p><i class="fa fa-envelope"></i> E-mail : info@webenlance.com</p>
+
+            </div>
+            <div class="col-md-2 col-sm-6 paddingtop-bottom">
+                <h6 class="heading7">GENERAL LINKS</h6>
+                <ul class="footer-ul">
+                    <li><a href="http://webenlance.com"> Career</a></li>
+                    <li><a href="http://webenlance.com"> Privacy Policy</a></li>
+                    <li><a href="http://webenlance.com"> Terms & Conditions</a></li>
+                    <li><a href="http://webenlance.com"> Client Gateway</a></li>
+                    <li><a href="http://webenlance.com"> Ranking</a></li>
+                    <li><a href="http://webenlance.com"> Case Studies</a></li>
+                    <li><a href="http://webenlance.com"> Frequently Ask Questions</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                <h6 class="heading7">LATEST POST</h6>
+                <div class="post">
+                    <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2023</span></p>
+                    <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2023</span></p>
+                    <p>facebook crack the movie advertisment code:what it means for you <span>August 3,2023</span></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline"
+                     data-height="300" data-small-header="false" style="margin-bottom:15px;"
+                     data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <div class="fb-xfbml-parse-ignore">
+                        <blockquote cite="https://www.facebook.com/facebook"><a
+                                href="https://www.facebook.com/facebook">Facebook</a></blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer start from here-->
+
+<div class="copyright">
+    <div class="container">
+        <div class="col-md-6">
+            <p>© 2023 - All Rights with Webenlance</p>
+        </div>
+        <div class="col-md-6">
+            <ul class="bottom_ul">
+                <li><a href="http://webenlance.com">webenlance.com</a></li>
+                <li><a href="http://webenlance.com">About us</a></li>
+                <li><a href="http://webenlance.com">Blog</a></li>
+                <li><a href="http://webenlance.com">Faq's</a></li>
+                <li><a href="http://webenlance.com">Contact us</a></li>
+                <li><a href="http://webenlance.com">Site Map</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- Footer -->
+
+</body>
+</html>

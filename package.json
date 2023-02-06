@@ -1,0 +1,9 @@
+{
+  "name": "MVC_Magerment_Products",
+  "version": "1.0.0",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "qs": "^6.11.0",
+    "socket.io": "^4.5.4"
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<br>
+<br>
+<br>
+
+<form class="form-horizontal" action="/create" method="post">
+    <fieldset>
+
+        <!-- Form Name -->
+        <center>
+            <legend>PRODUCTS</legend>
+        </center>
+
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+            <div class="col-md-4">
+                <input id="product_name" name="name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="product_name_fr">PRODUCT IMAGE </label>
+            <div class="col-md-4">
+                <input id="product_name_fr" name="img" placeholder="PRODUCT IMAGE" class="form-control input-md" required="" type="text">
+
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="available_quantity">PRODUCT PRICE</label>
+            <div class="col-md-4">
+                <input id="available_quantity" name="price" placeholder="PRODUCT PRICE" class="form-control input-md" required="" type="text">
+
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <!-- Text input-->
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="product_description">PRODUCT DESCRIPTION</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="product_description" placeholder="PRODUCT DESCRIPTION" name="description"></textarea>
+
+                <br>
+                <br>
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>

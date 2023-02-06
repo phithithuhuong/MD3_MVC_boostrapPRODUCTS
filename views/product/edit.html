@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit</title>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<br>
+<br>
+<br>
+
+<form class="form-horizontal" action="/edit?idProduct={id}" method="post">
+  <fieldset>
+
+    <!-- Form Name -->
+    <center>
+      <legend> UPDATE PRODUCTS </legend>
+    </center>
+
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+      <div class="col-md-4">
+        <input id="product_name" name="name" value="{name}" class="form-control input-md" required="" type="text">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">PRODUCT IMAGE </label>
+      <div class="col-md-4">
+        <input id="product_name_fr" name="img" value="{img}" class="form-control input-md" required="" type="text">
+
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="available_quantity">PRODUCT PRICE</label>
+      <div class="col-md-4">
+        <input id="available_quantity" name="price" value="{price}" class="form-control input-md" required="" type="text">
+
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <!-- Text input-->
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_description">PRODUCT DESCRIPTION</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="product_description" name="description">{description}</textarea>
+
+        <br>
+        <br>
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="singlebutton"></label>
+          <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>
