@@ -61,6 +61,16 @@ class UsersHandle {
             })
         }
     }
+    static logout = (req, res) => {
+        let cookie = qs.parse(req.headers.cookie);
+        console.log(cookie)
+        let fileName = cookie.loginTime;
+        console.log(fileName)
+        baseHandle.deleteSession(fileName);
+        res.writeHead(301, {Location: '/login'});
+        res.end();
+    }
+
 
 };
 module.exports = UsersHandle

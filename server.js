@@ -1,15 +1,15 @@
 const http= require('http');
 const url =require('url')
 const notFound = require('./controller/handle/notFoundHandle')
-const router = require('./controller/router')
+const router_menu = require('./controller/router')
 http.createServer((req, res) => {
     let urlParse = url.parse(req.url);
     let path = urlParse.pathname
     let chooseHandle;
-   if ( typeof router[path]==='undefined'){
+   if ( typeof router_menu[path]==='undefined'){
       chooseHandle = notFound
    } else {
-       chooseHandle = router[path]
+       chooseHandle = router_menu[path]
    }
    chooseHandle(req,res)
 

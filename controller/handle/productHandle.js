@@ -36,25 +36,18 @@ class ProductHandle {
 
     static getList(listHtml, products) {
         let tbody = '';
-        products.map(product => {
-            tbody += `<center><div class="card mb-3" style="max-width: 1100px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="${product.img}" class="card-img" alt="gucci">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${product.name}</h5>
-        <p class="card-text" style="color: red"> PRICE : ${product.price}$</p>
-        <p class="card-text"><small class="text-muted">DESCRIPTION : ${product.description}</small></p>
-          <a href="/edit?idProduct=${product.idProduct}" class="btn btn-primary">UPDATE</a>
-          <a href="/delete?id=${product.idProduct}" onclick="return confirm('Are you sure  want to delete this product?')"  class="btn btn-info">DELETE</a>
-      </div>
-    </div>
-  </div>
-</div>
-</center> `
+        products.map((product,index) => {
+            tbody+=`<tr>
+            <th scope="row">${index+1}</th>
+            <td><img style="width: 100%" src="${product.img}" alt="gucci"></td>
+            <td><h5>${product.name}</h5></td>
+            <td> ${product.price}$</td>
+            <td><p class="card-text"><small class="text-muted"> ${product.description}</small></p></td>
+            <td><a href="/edit?idProduct=${product.idProduct}" class="btn btn-primary">UPDATE</a></td>
+            <td><a href="/delete?id=${product.idProduct}" onclick="return confirm('Are you sure  want to delete this product?')"  class="btn btn-info">DELETE</a> </td>
+        </tr>`
         })
+
         listHtml = listHtml.replace('{product}', tbody);
         return listHtml;
     }
@@ -74,6 +67,7 @@ class ProductHandle {
             });
             req.on('end', async () => {
                 let search = qs.parse(data);
+                console.log(search,1)
                 let listHtml = await baseHandle.readFile('./views/product/list.html');
                 console.log(search);
                 let searchName = await productService.search(search.search);

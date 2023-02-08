@@ -1,14 +1,10 @@
 const productHandle = require('./handle/productHandle')
-const userHandle = require('./handle/usersHandle')
-
+const user_router = require('./router/user_router');
+const product_router = require('./router/product_router');
+const buyProduct_router = require('./router/buyProduct_router')
 const router = {
     '/home': productHandle.home,
-    '/signup': userHandle.signup,
-    '/login': userHandle.login,
-    '/list': productHandle.list,
-    '/create': productHandle.create,
-    '/delete':productHandle.remove,
-    '/edit': productHandle.edit
-
 }
-module.exports = router
+let router_menu = {...router, ...user_router,...product_router,...buyProduct_router};
+
+module.exports = router_menu
