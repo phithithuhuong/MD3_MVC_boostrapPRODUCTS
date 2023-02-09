@@ -41,7 +41,7 @@ class ProductHandle {
             <th scope="row">${index+1}</th>
             <td><img style="width: 100%" src="${product.img}" alt="gucci"></td>
             <td><h5>${product.name}</h5></td>
-            <td> ${product.price}$</td>
+            <td style="color: red"> ${product.price}$</td>
             <td><p class="card-text"><small class="text-muted"> ${product.description}</small></p></td>
             <td><a href="/edit?idProduct=${product.idProduct}" class="btn btn-primary">UPDATE</a></td>
             <td><a href="/delete?id=${product.idProduct}" onclick="return confirm('Are you sure  want to delete this product?')"  class="btn btn-info">DELETE</a> </td>
@@ -80,9 +80,7 @@ class ProductHandle {
             })
         }
 
-
     }
-
     static async remove(req, res) {
         let query = url.parse(req.url, true).query;
         let id = qs.parse(query).id;

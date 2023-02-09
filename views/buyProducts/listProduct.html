@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+        body{
+            font-family: 'Poiret One', cursive;
+            font-size: 1.875em;
+        }
         /* Remove the navbar's default rounded borders and increase the bottom margin */
         .navbar {
             margin-bottom: 50px;
@@ -27,15 +38,14 @@
     </style>
 </head>
 <body>
-
+<br><br>
 <div class="jumbotron" style="background: #d9d6d6">
     <div class="container text-center">
         <h1>GUCCI STORE</h1>
         <p>Perfume spreads sweetness & nobility</p>
     </div>
 </div>
-
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse  navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,19 +53,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">GUCCI</a>
+            <a class="navbar-brand" href="https://www.gucci.com/au/en_au/">GUCCI</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Deals</a></li>
-                <li><a href="#">Stores</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+                <li class="active"><a href="/home">Home</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="/buy/list"> Store</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search" action="/buy/list" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" placeholder="Search.." name="search">
+                    <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
             </ul>
         </div>
     </div>
@@ -65,61 +82,41 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-primary">
-                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-heading"></div>
                 <div class="panel-body"><img
                         src="https://media.gucci.com/content/DiaryArticleDouble_Small_640x408/1671723026/DiaryArticleDouble_Gucci-CNY-Campaign-Dec2022-03_001_Default.jpg"
                         class="img-responsive" style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                <div class="panel-footer">View this..
+                    <p>Buy 50 mobiles and get a gift card</p></div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="panel panel-danger">
-                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                <div class="panel-body"><img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_475x340/1646822703/DiaryHeroArticle_Beauty-bonkersmakeup_001_Default.jpg" class="img-responsive"
-                                             style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                <div class="panel-heading"></div>
+                <div class="panel-body"><img
+                        src="https://media.gucci.com/content/DiaryHeroArticle_Standard_475x340/1646822703/DiaryHeroArticle_Beauty-bonkersmakeup_001_Default.jpg"
+                        class="img-responsive"
+                        style="width:100%" alt="Image"></div>
+                <div class="panel-footer">View this..</div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="panel panel-success">
-                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                <div class="panel-body"><img src="https://media.gucci.com/content/DiaryHeroArticle_Standard_475x340/1537181104/DiaryHeroArticle_IG-Beauty-STILL-pink_001_Default.jpg" class="img-responsive"
-                                             style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                <div class="panel-heading"></div>
+                <div class="panel-body"><img
+                        src="https://media.gucci.com/content/DiaryHeroArticle_Standard_475x340/1537181104/DiaryHeroArticle_IG-Beauty-STILL-pink_001_Default.jpg"
+                        class="img-responsive"
+                        style="width:100%" alt="Image"></div>
+                <div class="panel-footer">
+                    View this..
+                </div>
             </div>
         </div>
     </div>
 </div>
 <br>
 {list-products}
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-sm-4">-->
-<!--            <div class="panel panel-primary">-->
-<!--                <div class="panel-heading">BLACK FRIDAY DEAL</div>-->
-<!--                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"-->
-<!--                                             style="width:100%" alt="Image"></div>-->
-<!--                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-sm-4">-->
-<!--            <div class="panel panel-primary">-->
-<!--                <div class="panel-heading">BLACK FRIDAY DEAL</div>-->
-<!--                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"-->
-<!--                                             style="width:100%" alt="Image"></div>-->
-<!--                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-sm-4">-->
-<!--            <div class="panel panel-primary">-->
-<!--                <div class="panel-heading">BLACK FRIDAY DEAL</div>-->
-<!--                <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive"-->
-<!--                                             style="width:100%" alt="Image"></div>-->
-<!--                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+
 <br><br>
 
 

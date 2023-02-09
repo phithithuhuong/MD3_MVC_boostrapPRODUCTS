@@ -1,12 +1,12 @@
 const connection = require('../model/connection');
 connection.connecting();
 
-class UserService {
+class CustomerService {
     static signup(user) {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
-            let sql = `INSERT INTO productstore.users (name, birthday, address, password, email, phone)
-                       VALUES ('${user.name}', '${user.birthday}', '${user.address}', '${user.password}', '${user.email}
+            let sql = `INSERT INTO productstore.customer (name, birthday, address, password, email, phone)
+                       VALUES ('${user.name}', '${user.birthday}', '${user.address}', '${user.password}', '${user.email.trim()}
                                ', '${user.phone}')`
             connect.query(sql, (err, result) => {
                 if (err) {
@@ -18,17 +18,18 @@ class UserService {
         })
     }
 
-    static login(user) {
+    static login(customer) {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
             let sql = ` SELECT *
-                        FROM productstore.users
-                        WHERE email = '${user.email}'
-                          and password = '${user.password}'`
+                        FROM productstore.customer
+                        WHERE email = '${customer.email}'
+                          and password = '${customer.password}'`
             connect.query(sql, (err, result) => {
                 if (err) {
                     reject(err)
                 } else {
+
                     resolve(result)
                 }
             })
@@ -37,4 +38,5 @@ class UserService {
 
 }
 
-module.exports = UserService
+
+module.exports = CustomerService

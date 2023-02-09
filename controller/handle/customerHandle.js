@@ -1,10 +1,11 @@
-const userService=  require('../../service/userService');
+const userService=  require('../../service/customerService');
 const baseHandle = require('../handle/baseHandle');
 const qs = require('qs');
-class UsersHandle {
+const {LONG} = require("mysql/lib/protocol/constants/types");
+class CustomerHandle {
     static async signup(req,res){
         if(req.method==="GET"){
-            let signupHtml = await baseHandle.readFile('./views/user/signup.html');
+            let signupHtml = await baseHandle.readFile('./views/customer/signup.html');
             res.writeHead(200,'text/html');
             res.write(signupHtml);
             res.end()
@@ -35,7 +36,7 @@ class UsersHandle {
     }
     static async login(req,res){
         if (req.method==='GET'){
-            let loginHtml=  await baseHandle.readFile('./views/user/login.html');
+            let loginHtml=  await baseHandle.readFile('./views/customer/login.html');
             res.writeHead(200,'text/html');
             res.write(loginHtml);
             res.end()
@@ -46,12 +47,15 @@ class UsersHandle {
             });
             req.on('end', async ()=>{
                 let user = qs.parse(data);
+                console.log(user)
              let login =  await userService.login(user);
+                console.log(login)
              if (login.length!==0){
                  let now =  Date.now().toString();
-                 baseHandle.createSession(now,user.email,user.password);
+                  baseHandle.createSession(now,user.email,user.password);
+                 console.log(user)
                  res.setHeader('Set-cookie',`loginTime=${now}`);
-                 res.writeHead(301,{Location :'/home'});
+                 res.writeHead(301,{Location :'/list'});
                  res.end();
              } else {
                  res.writeHead(301,{Location:'/login'});
@@ -73,4 +77,4 @@ class UsersHandle {
 
 
 };
-module.exports = UsersHandle
+module.exports = CustomerHandle

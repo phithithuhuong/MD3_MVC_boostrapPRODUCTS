@@ -5,6 +5,18 @@
     <title>List product</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+        body{
+            font-family: 'Poiret One', cursive;
+            font-size: 1.300em;
+        }
+
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,7 +47,10 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/list">products <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/list">PRODUCTS <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/buy/list">STORE<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/list" method="post">
@@ -44,7 +59,7 @@
         </form>
     </div>
 </nav>
-<table class="table table-sm table-dark">
+<table class="table table-sm table-default">
     <thead>
     <tr>
         <th scope="col">Order</th>

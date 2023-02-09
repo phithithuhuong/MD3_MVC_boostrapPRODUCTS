@@ -5,10 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        /* Add a gray background color and some padding to the footer */
+        @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+     body{
+         color: black;
+         font-family: 'Poiret One', cursive;
+         font-size: 1.875em;
+     }
+
+              /* Add a gray background color and some padding to the footer */
         footer {
             background-color: #f2f2f2;
             padding: 25px;
@@ -171,7 +182,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -183,10 +194,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="/home">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="/buy/show">More</a></li>
-                <li><a href="/list">Products</a></li>
+                <li><a href="/buy/list">Store</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
@@ -200,7 +210,9 @@
         </div>
     </div>
 </nav>
-
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
