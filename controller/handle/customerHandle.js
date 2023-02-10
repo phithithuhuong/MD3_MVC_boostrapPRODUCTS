@@ -55,7 +55,7 @@ class CustomerHandle {
                   baseHandle.createSession(now,user.email,user.password);
                  console.log(user)
                  res.setHeader('Set-cookie',`loginTime=${now}`);
-                 res.writeHead(301,{Location :'/list'});
+                 res.writeHead(301,{Location :'/buy/list'});
                  res.end();
              } else {
                  res.writeHead(301,{Location:'/login'});

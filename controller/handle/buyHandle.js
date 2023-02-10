@@ -1,11 +1,13 @@
 const baseHandle = require('../handle/baseHandle');
-const productService = require('../../service/productService')
+const productService = require('../../service/productService');
+const orderService = require('../../service/oderService')
 const qs = require('qs')
+
 class BuyHandle {
-    static getList(listHtml,products){
-        let tbody='';
-        products.forEach((product,index)=>{
-            tbody+=`<center>
+    static getList(listHtml, products) {
+        let tbody = '';
+        products.forEach((product, index) => {
+            tbody += `<center>
     <div class="card mb-3" style="max-width: 1200px;">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -16,7 +18,7 @@ class BuyHandle {
                     <h4 class="card-title">${product.name}</h4>
                     <p class="card-text">PRICE :${product.price}</p>
                     <p class="card-text"><small class="text-muted">DESCRIPTION :${product.description}</small></p>
-                    <button type="submit" class="btn btn-info"><a href="##">BUY NOW</a></button>
+                    <button type="submit" class="btn btn-info"><a href="/buy/now">BUY NOW</a></button>
                     <button type="submit" class="btn btn-danger"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></button>
                 </div>
             </div>
@@ -26,25 +28,26 @@ class BuyHandle {
 </center>
 <br>`
         });
-        listHtml = listHtml.replace('{list-products}',tbody);
+        listHtml = listHtml.replace('{list-products}', tbody);
         return listHtml
     }
+
     static async listBuy(req, res) {
-        if (req.method==="GET"){
+        if (req.method === "GET") {
             let listBuyHtml = await baseHandle.readFile('./views/buyProducts/listProduct.html');
-            let products =  await productService.showAll();
-            listBuyHtml= await BuyHandle.getList(listBuyHtml,products)
+            let products = await productService.showAll();
+            listBuyHtml = await BuyHandle.getList(listBuyHtml, products)
             res.writeHead(200, 'text/html');
             res.write(listBuyHtml);
             res.end()
-        }else {
+        } else {
             let data = '';
-            req.on('data', chunk=>{
-                data+=chunk
+            req.on('data', chunk => {
+                data += chunk
             });
-            req.on('end',async ()=>{
+            req.on('end', async () => {
                 let search = qs.parse(data);
-                console.log(search,1)
+                console.log(search, 1)
                 let listHtml = await baseHandle.readFile('./views/buyProducts/listProduct.html');
                 console.log(search);
                 let searchName = await productService.search(search.search);
@@ -55,7 +58,30 @@ class BuyHandle {
             })
         }
 
+    };
+
+    static async buyNow(req, res) {
+        if (req.method === "GET") {
+            let buyNowHtml = await baseHandle.readFile('./views/buyProducts/buyNow.html');
+            res.writeHead(200, 'text/html');
+            res.write(buyNowHtml);
+            res.end()
+        } else {
+            let data = '';
+            req.on('data', chunk => {
+                data += chunk
+            });
+            req.on('end', async () => {
+                let order = qs.parse(data);
+                await orderService.createOrder(order);
+                res.writeHead(301,{Location :'/buy/list'});
+                res.end()
+
+            })
         }
+
+
+    }
 
 
 };

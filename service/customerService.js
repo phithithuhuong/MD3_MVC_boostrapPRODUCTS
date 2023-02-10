@@ -34,6 +34,37 @@ class CustomerService {
                 }
             })
         })
+    };
+    static editPassword(customer,email){
+        let connect = connection.getConnect();
+        return new Promise((resolve, reject) => {
+            let sql = ` UPDATE productstore.customer t SET t.password = ${customer.password} WHERE t.email = ${email}`
+            connect.query(sql, (err, result) => {
+                if (err) {
+                    reject(err)
+                } else {
+
+                    resolve(result)
+                }
+            })
+        })
+
+
+    };
+    static getEmail(email){
+        let connect = connection.getConnect();
+        return new Promise((resolve, reject) => {
+            let sql = ` SELECT * FROM productstore.customer t WHERE t.email = ${email}`
+            connect.query(sql, (err, result) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(result)
+                }
+            })
+        })
+
+
     }
 
 }
