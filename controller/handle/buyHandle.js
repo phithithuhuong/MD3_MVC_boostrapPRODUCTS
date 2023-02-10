@@ -11,15 +11,15 @@ class BuyHandle {
     <div class="card mb-3" style="max-width: 1200px;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img style="width: 100%" src="${product.img}" class="card-img" alt="GUCCI">
+                <img style="width: 100%" src="../../public/${product.img}" class="card-img" alt="GUCCI">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h4 class="card-title">${product.name}</h4>
-                    <p class="card-text">PRICE :${product.price}</p>
+                    <p class="card-text" style="color: red">PRICE :${product.price}$</p>
                     <p class="card-text"><small class="text-muted">DESCRIPTION :${product.description}</small></p>
-                    <button type="submit" class="btn btn-info"><a href="/buy/now">BUY NOW</a></button>
-                    <button type="submit" class="btn btn-danger"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></button>
+                    <button type="submit" class="btn btn-info"><a href="/buy/now" style="color: white;font-size: 120%" >BUY NOW</a></button>
+                    <button type="submit"  class="btn btn-danger"><a href="" style="color: white" ><span class="glyphicon glyphicon-shopping-cart"></span></a></button>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@ class BuyHandle {
             req.on('end', async () => {
                 let order = qs.parse(data);
                 await orderService.createOrder(order);
-                res.writeHead(301,{Location :'/buy/list'});
+                res.writeHead(301, {Location: '/buy/list'});
                 res.end()
 
             })

@@ -2,6 +2,7 @@ const userService=  require('../../service/customerService');
 const baseHandle = require('../handle/baseHandle');
 const qs = require('qs');
 const {LONG} = require("mysql/lib/protocol/constants/types");
+const customerService = require("../../service/customerService");
 class CustomerHandle {
     static async signup(req,res){
         if(req.method==="GET"){
@@ -47,13 +48,10 @@ class CustomerHandle {
             });
             req.on('end', async ()=>{
                 let user = qs.parse(data);
-                console.log(user)
              let login =  await userService.login(user);
-                console.log(login)
              if (login.length!==0){
                  let now =  Date.now().toString();
                   baseHandle.createSession(now,user.email,user.password);
-                 console.log(user)
                  res.setHeader('Set-cookie',`loginTime=${now}`);
                  res.writeHead(301,{Location :'/buy/list'});
                  res.end();
@@ -74,7 +72,29 @@ class CustomerHandle {
         res.writeHead(301, {Location: '/login'});
         res.end();
     }
+    static async editPassword (req, res) {
+        if (req.method==="GET"){
+            let dataHTML = await baseHandle.readFile('./views/customer/editPassword.html');
+            res.writeHead(200, 'Content-Type', 'text/html');
+            res.write(dataHTML);
+            res.end();
+        } else {
+            let data = '';
+            let session = await baseHandle.getSessionData(req);
+            req.on('data', chunk => {
+                data += chunk;
+            });
+            req.on('end', () => {
+                let password = qs.parse(data).password;
+                console.log(password,1)
+                let email = session.email;
+                console.log(email,2)
+                 customerService.editPassword( password, email);
+                res.writeHead(301, {Location:'/buy/list'});
+                res.end();
+            });
+        }
 
-
+    }
 };
 module.exports = CustomerHandle

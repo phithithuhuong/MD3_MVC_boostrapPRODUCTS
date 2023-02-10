@@ -39,7 +39,7 @@ class ProductHandle {
         products.map((product,index) => {
             tbody+=`<tr>
             <th scope="row">${index+1}</th>
-            <td><img style="width: 100%" src="${product.img}" alt="gucci"></td>
+            <td><img style="width: 100%" src="../../public/${product.img}" alt="gucci"></td>
             <td><h5>${product.name}</h5></td>
             <td style="color: red"> ${product.price}$</td>
             <td><p class="card-text"><small class="text-muted"> ${product.description}</small></p></td>

@@ -6,5 +6,4 @@ const router = {
     '/home': productHandle.home,
 }
 let router_menu = {...router, ...user_router,...product_router,...buy_router};
-
 module.exports = router_menu

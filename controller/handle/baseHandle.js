@@ -1,5 +1,6 @@
 const fs = require('fs');
 const qs = require ('qs');
+const customerService = require('../../service/customerService')
 class BaseHandle {
     static readFile(file){
         return  new Promise((resolve, reject) => {
@@ -63,5 +64,6 @@ class BaseHandle {
             })
         })
     }
+
 }
 module.exports = BaseHandle;
