@@ -10,6 +10,13 @@ class ProductHandle {
         res.write(homeHtml);
         res.end()
 
+    };
+    static async introduce(req, res) {
+        let homeHtml = await baseHandle.readFile('./views/introduce.html');
+        res.writeHead(200, 'text/html');
+        res.write(homeHtml);
+        res.end()
+
     }
 
     static async create(req, res) {

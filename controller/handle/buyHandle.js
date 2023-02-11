@@ -19,7 +19,7 @@ class BuyHandle {
                     <p class="card-text" style="color: red">PRICE :${product.price}$</p>
                     <p class="card-text"><small class="text-muted">DESCRIPTION :${product.description}</small></p>
                     <button type="submit" class="btn btn-info"><a href="/buy/now" style="color: white;font-size: 120%" >BUY NOW</a></button>
-                    <button type="submit"  class="btn btn-danger"><a href="" style="color: white" ><span class="glyphicon glyphicon-shopping-cart"></span></a></button>
+                    <button type="submit"  class="btn btn-danger"><a href="/buy?id=${product.idProduct}" style="color: white" ><span class="glyphicon glyphicon-shopping-cart"></span></a></button>
                 </div>
             </div>
         </div>
@@ -67,17 +67,17 @@ class BuyHandle {
             res.write(buyNowHtml);
             res.end()
         } else {
-            let data = '';
-            req.on('data', chunk => {
-                data += chunk
-            });
-            req.on('end', async () => {
-                let order = qs.parse(data);
-                await orderService.createOrder(order);
+            // let data = '';
+            // req.on('data', chunk => {
+            //     data += chunk
+            // });
+            // req.on('end', async () => {
+            //     let order = qs.parse(data);
+            //     await orderService.createOrder(order);
                 res.writeHead(301, {Location: '/buy/list'});
                 res.end()
 
-            })
+            // })
         }
 
 

@@ -35,5 +35,5 @@ http.createServer((req, res) => {
 
 
 }).listen(3030, () => {
-    console.log('Server is running  http://localhost:3030/home')
+    console.log('Server is running  http://localhost:3030/admin-login')
 });
