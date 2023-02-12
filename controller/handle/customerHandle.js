@@ -17,6 +17,7 @@ class CustomerHandle {
             })
             req.on('end', async ()=>{
                 let user = qs.parse(data);
+
                let signup=  await userService.signup(user);
                 if (signup.length!==0){
                     res.writeHead(301,{Location :'/login'});
@@ -50,9 +51,9 @@ class CustomerHandle {
                 let user = qs.parse(data);
              let login =  await userService.login(user);
              if (login.length!==0){
-                 let now =  Date.now().toString();
-                  baseHandle.createSession(now,user.email,user.password);
-                 res.setHeader('Set-cookie',`loginTime=${now}`);
+                 // let now =  Date.now().toString();
+                  baseHandle.createSession(user.email,user.password);
+                 res.setHeader('Set-cookie',`loginTime=${user.email}`);
                  res.writeHead(301,{Location :'/buy/list'});
                  res.end();
              } else {
@@ -93,6 +94,7 @@ class CustomerHandle {
         } else {
             let data = '';
             let session = await baseHandle.getSessionData(req);
+            console.log(session)
             req.on('data', chunk => {
                 data += chunk;
             });

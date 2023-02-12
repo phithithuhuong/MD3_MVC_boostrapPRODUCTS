@@ -6,8 +6,7 @@ class CustomerService {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
             let sql = `INSERT INTO productstore.customer (name, birthday, address, password, email, phone)
-                       VALUES ('${user.name}', '${user.birthday}', '${user.address}', '${user.password}', '${user.email}
-                               ', '${user.phone}')`
+                       VALUES ('${user.name}', '${user.birthday}', '${user.address}', '${user.password}', '${user.email}', '${user.phone}')`
             connect.query(sql, (err, result) => {
                 if (err) {
                     reject(err)
@@ -38,7 +37,7 @@ class CustomerService {
     static editPassword(password,email){
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
-            let sql = ` UPDATE productstore.customer t SET t.password = ${password} WHERE t.email = ${email}`
+            let sql = ` UPDATE productstore.customer t SET t.password = '${password}' WHERE t.email = '${email}'`
             connect.query(sql, (err, result) => {
                 if (err) {
                     reject(err)

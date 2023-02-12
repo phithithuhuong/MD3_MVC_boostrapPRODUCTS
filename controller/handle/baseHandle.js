@@ -14,14 +14,14 @@ class BaseHandle {
         })
 
     }
-    static createSession(time, email, password) {
-        let expire = 60 * 60 * 24 * 7 * 1000 + time;
+    static createSession( email, password) {
+        let expire = 60 * 60 * 24 * 7 * 1000 ;
         let session = {
             email: email,
             password: password,
             expire: expire
         }
-        fs.writeFile(`./session/${time}`, JSON.stringify(session), 'utf-8', err => {
+        fs.writeFile(`./session/${session.email}`, JSON.stringify(session), 'utf-8', err => {
             if (err) throw err;
         })
     }
@@ -48,7 +48,8 @@ class BaseHandle {
     }
     static getSessionPath(req) {
         let cookie = this.getCookie(req);
-        let loginTime = cookie.loginTime;
+        console.log(Object.values(cookie)[0].slice(38,60))
+        let loginTime = Object.values(cookie)[0].slice(48,67);
         let filePath = `./session/${loginTime}`;
         return filePath;
     }

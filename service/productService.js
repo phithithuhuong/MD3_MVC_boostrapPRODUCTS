@@ -31,6 +31,19 @@ class ProductService {
             })
         })
     }
+    static showAllProductInCart() {
+        let connect = connection.getConnect();
+        return new Promise((resolve, reject) => {
+            let sql = `select * from orders`;
+            connect.query(sql, (err, values) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(values)
+                }
+            })
+        })
+    }
     static remove(id) {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {

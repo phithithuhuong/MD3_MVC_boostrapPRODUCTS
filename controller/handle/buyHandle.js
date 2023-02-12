@@ -147,6 +147,7 @@ class BuyHandle {
         if (req.method==="GET"){
             let listCartHtml = await baseHandle.readFile('./views/buyProducts/listCart.html');
             let products = await productService.showAll();
+            console.log(products)
             listCartHtml = await BuyHandle.getListCart(listCartHtml, products)
             res.writeHead(200, 'text/html');
             res.write(listCartHtml);
