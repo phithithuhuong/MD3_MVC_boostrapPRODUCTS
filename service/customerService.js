@@ -6,7 +6,7 @@ class CustomerService {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
             let sql = `INSERT INTO productstore.customer (name, birthday, address, password, email, phone)
-                       VALUES ('${user.name}', '${user.birthday}', '${user.address}', '${user.password}', '${user.email.trim()}
+                       VALUES ('${user.name}', '${user.birthday}', '${user.address}', '${user.password}', '${user.email}
                                ', '${user.phone}')`
             connect.query(sql, (err, result) => {
                 if (err) {
