@@ -43,7 +43,8 @@ class BaseHandle {
         });
     }
     static getCookie(req) {
-        return qs.parse(req.headers.cookie);
+        let cookie = qs.parse(req.headers.cookie);
+        return cookie;
     }
     static getSessionPath(req) {
         let cookie = this.getCookie(req);

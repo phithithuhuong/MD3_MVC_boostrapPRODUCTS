@@ -21,7 +21,7 @@ class CustomerService {
     static login(customer) {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
-            let sql = ` SELECT *
+            let sql = ` SELECT email, password
                         FROM productstore.customer
                         WHERE email = '${customer.email}'
                           and password = '${customer.password}'`
@@ -35,10 +35,10 @@ class CustomerService {
             })
         })
     };
-    static editPassword(customer,email){
+    static editPassword(password,email){
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
-            let sql = ` UPDATE productstore.customer t SET t.password = ${customer.password} WHERE t.email = ${email}`
+            let sql = ` UPDATE productstore.customer t SET t.password = ${password} WHERE t.email = ${email}`
             connect.query(sql, (err, result) => {
                 if (err) {
                     reject(err)
@@ -54,7 +54,7 @@ class CustomerService {
     static getEmail(email){
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
-            let sql = ` SELECT * FROM productstore.customer t WHERE t.email = ${email}`
+            let sql = ` SELECT idCustomer FROM productstore.customer t WHERE t.email = ${email}`
             connect.query(sql, (err, result) => {
                 if (err) {
                     reject(err)

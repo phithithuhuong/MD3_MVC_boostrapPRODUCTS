@@ -31,7 +31,6 @@ class ProductService {
             })
         })
     }
-
     static remove(id) {
         let connect = connection.getConnect();
         return new Promise((resolve, reject) => {
@@ -63,8 +62,6 @@ class ProductService {
                 }
             })
         })
-
-
     }
 
     static edit(product, id) {

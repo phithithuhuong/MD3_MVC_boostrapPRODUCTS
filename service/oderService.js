@@ -3,10 +3,9 @@ let connect = connection.getConnect();
 
 class OderService {
 
-    static createOrder(order) {
+    static getIdCustomer(emailSession) {
         return new Promise((resolve, reject) => {
-            let sql = `INSERT INTO productstore.orderdetail (quantity) VALUES ( ${order.quantity}));
-            )`;
+            let sql = `select idCustomer from customer where email = '${emailSession}'`;
             connect.query(sql, (err, values) => {
                 if (err) {
                     reject(err)
@@ -15,7 +14,31 @@ class OderService {
                 }
             })
         });
+    };
 
+    static createOrder(idCustomer,dateBuy) {
+        return new Promise((resolve, reject) => {
+            let sql = `insert into orders(idCustomer,dateBuy) VALUES (${idCustomer}, '${dateBuy}')`;
+            connect.query(sql, (err, values) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(values)
+                }
+            })
+        });
+    };
+    static createOrderDetail(idOrder,idProduct,quantity){
+        return new Promise((resolve, reject) => {
+            let sql =` insert into orderdetail(idOrder, idProduct, quantity) VALUES (${idOrder}, ${idProduct}, ${quantity})`;
+            connect.query(sql,(err,value)=>{
+                if (err){
+                    reject(err)
+                } else {
+                    resolve(value)
+                }
+            })
+        })
 
     }
 

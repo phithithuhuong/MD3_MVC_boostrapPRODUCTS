@@ -8,5 +8,4 @@ const router = {
     '/introduce': productHandle.introduce,
 }
 let router_menu = {...router, ...user_router, ...product_router, ...buy_router, ...admin_router};
-console.log(router_menu)
 module.exports = router_menu
